@@ -1,0 +1,7 @@
+data/
+out/
+out_*/
+test/
+scripts/
+*.py
+universe.csv

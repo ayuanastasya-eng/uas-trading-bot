@@ -1,0 +1,12 @@
+{
+  "name": "uas-trading-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bot dry run Indodax (UAS Algorithmic Trading): Donchian + EMA200, timeframe 4 jam, long-only",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "backtest": "node backtest.js",
+    "test": "node test/replay_test.js",
+    "local-tick": "node scripts/local_tick.js"
+  }
+}

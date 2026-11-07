@@ -1,0 +1,34 @@
+{
+  "timeframe": "240",
+  "tf_seconds": 14400,
+  "universe": [
+    "btcidr",
+    "ethidr",
+    "xrpidr",
+    "solidr",
+    "dogeidr"
+  ],
+  "strategy": {
+    "donchian_entry": 20,
+    "donchian_exit": 10,
+    "ema_period": 200,
+    "atr_period": 14,
+    "atr_stop_mult": 3
+  },
+  "risk": {
+    "initial_capital": 100000000,
+    "risk_per_trade": 0.01,
+    "max_positions": 3,
+    "max_position_pct": 0.25,
+    "min_order_idr": 25000,
+    "daily_loss_limit_pct": 0.03
+  },
+  "costs": {
+    "taker_fee_buy_pct": 0.20555,
+    "taker_fee_sell_pct": 0.41555,
+    "spread_pct": 0.3,
+    "slippage_pct": 0.05,
+    "_sumber_fee": "help.indodax.com, Details of Transaction Fees (all-in IDR Pro taker: beli 0.20555%, jual 0.41555%); API /api/pairs trade_fee_percent_taker 0.2% lebih murah -> dipakai yang mahal. Akses 7 Nov 2026.",
+    "_sementara": "spread_pct dan slippage_pct SEMENTARA (belum dari snapshot order book). Ganti dengan median snapshot sebelum freeze."
+  }
+}

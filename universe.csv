@@ -1,0 +1,11 @@
+rank,pair,median_daily_turnover_idr,zero_volume_bar_ratio,selected,note
+1,btcidr,20027641745,0.0,True,
+2,ethidr,5934515205,0.0,True,
+3,xrpidr,4895375124,0.0,True,
+4,solidr,4662775972,0.0,True,
+5,dogeidr,3437834313,0.0,True,
+6,adaidr,2474558133,0.0,False,
+7,bnbidr,1260658936,0.0,False,
+8,trxidr,1156024260,0.0,False,
+9,ltcidr,485074946,0.0,False,
+,shibidr,,,False,baru ada sejak 2024-01-30

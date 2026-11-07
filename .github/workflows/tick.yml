@@ -1,0 +1,16 @@
+name: tick
+on:
+  schedule:
+    - cron: '7 * * * *'   # menit ke-7 tiap jam (bukan menit bulat)
+  workflow_dispatch:
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Panggil /api/tick
+        env:
+          APP_URL: ${{ secrets.APP_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          curl --fail-with-body -sS --max-time 45 --retry 2 --retry-delay 15 \
+            -H "Authorization: Bearer $CRON_SECRET" "$APP_URL/api/tick"
