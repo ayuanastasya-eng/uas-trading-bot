@@ -27,6 +27,7 @@ const boolId = (x) => (x ? 'ada' : 'tidak ada');
 const listOr = (arr) => (arr && arr.length ? arr.join(', ') : 'tidak ada');
 
 const zeroTrade = !m.trade_tertutup;
+const fullPeriod = Number(m.periode.hari) >= 9.5;
 const fwdOrder = gap ? gap.order_forward : m.sumber.jumlah_order;
 const btOrder = gap ? gap.order_backtest : null;
 const btc = m.benchmark_btc_buy_hold ? `${num(m.benchmark_btc_buy_hold.return_pct)}%` : '-';
@@ -134,11 +135,13 @@ Uptime dihitung sesuai soal: candle dianggap terproses bila diproses sebelum can
 
 Error: ${num(m.error.total, 0)}, API error ${num(m.error.api_error, 0)}. Per tipe: ${errTypes}. Pemakaian kill switch tercatat ${num(m.kill_switch_events, 0)} kali. ${m.error.total === 0 ? 'Tidak ada error yang tercatat, sehingga tidak ada data yang hilang karena kegagalan API.' : 'Error di atas tercatat di log dan tidak dihapus; dampaknya dijelaskan di bagian ini.'}
 
-## 5. Kenapa periode forward ini pendek dan apa dampaknya
+## 5. ${fullPeriod ? 'Periode forward penuh dan konsekuensinya' : 'Kenapa periode forward ini pendek dan apa dampaknya'}
 
-Pengerjaan baru dimulai 7 November 2026, setelah freeze date di soal (4 November 2026 12.00 WIB). Forward test pada paket ini baru berjalan ${num(m.periode.hari, 1)} hari (mulai ${wib(m.periode.mulai)}), bukan 10 hari penuh. Ini keterbatasan yang saya nyatakan apa adanya, bukan tanggal yang dimundurkan.
+${fullPeriod
+    ? `Pengerjaan baru dimulai 7 November 2026, setelah freeze date di soal (4 November 2026 12.00 WIB), tetapi bot dibiarkan berjalan sampai ${num(m.periode.hari, 1)} hari (mulai ${wib(m.periode.mulai)}). Ini adalah Paket B: periode forward test genap 10 hari, dengan konsekuensi pengumpulan terlambat dari batas 14 November 2026. Saya mencatat keterlambatan ini apa adanya, bukan memundurkan tanggal.`
+    : `Pengerjaan baru dimulai 7 November 2026, setelah freeze date di soal (4 November 2026 12.00 WIB). Forward test pada paket ini baru berjalan ${num(m.periode.hari, 1)} hari (mulai ${wib(m.periode.mulai)}), bukan 10 hari penuh. Ini keterbatasan yang saya nyatakan apa adanya, bukan tanggal yang dimundurkan.`}
 
-Dengan candle 4 jam dan filter tren yang ketat, jumlah trade pada jendela pendek memang sedikit (${num(m.trade_tertutup, 0)} trade tertutup). Perbandingan dengan backtest 3 tahun karena itu hanya indikatif. Yang bisa diuji dengan cukup baik adalah kecocokan sinyal candle demi candle, kelengkapan log, dan kepatuhan eksekusi pada best bid/ask.
+Dengan candle 4 jam dan filter tren yang ketat, jumlah trade pada jendela ini memang sedikit (${num(m.trade_tertutup, 0)} trade tertutup). Perbandingan dengan backtest 3 tahun karena itu hanya indikatif. Yang bisa diuji dengan cukup baik adalah kecocokan sinyal candle demi candle, kelengkapan log, dan kepatuhan eksekusi pada best bid/ask.
 
 ## 6. Apa yang saya pelajari
 

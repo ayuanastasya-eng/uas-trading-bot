@@ -139,7 +139,7 @@ Berkas ini dibuat otomatis oleh \`scripts/finalisasi.js\`. Tanggal pembuatan: ${
 ## Catatan jujur
 - Freeze sebenarnya: 7 November 2026 (commit \`9a63a1e\`), bukan 4 November 2026.
 - Forward test dimulai 8 November 2026 ±07.11 WIB.
-- Paket A dipotong ${wib(END)}; periode ini lebih pendek dari 10 hari penuh dan dijelaskan di \`REFLEKSI.md\`.
+- Paket ${paket} dipotong ${wib(END)}; ${paket === 'B' ? 'periode forward test genap 10 hari, tetapi diserahkan setelah batas 14 November 2026.' : 'periode ini lebih pendek dari 10 hari penuh dan dijelaskan di `REFLEKSI.md`.'}
 `;
   fs.writeFileSync(path.join(stageDir, 'PANDUAN_PENGUMPULAN.md'), guide);
 
