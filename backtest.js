@@ -8,8 +8,10 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > -1 ? proce
 const cfg = JSON.parse(fs.readFileSync(arg('--config', path.join(__dirname, 'config.json')), 'utf8'));
 const outDir = arg('--out', 'out');
 const dataDir = arg('--data', 'data');
-const fromTs = arg('--from') ? Date.parse(arg('--from') + 'T00:00:00Z') / 1000 : 0;
-const toTs = arg('--to') ? Date.parse(arg('--to') + 'T23:59:59Z') / 1000 : Infinity;
+// --from/--to: tanggal (YYYY-MM-DD) ATAU timestamp ISO lengkap (2026-11-07T20:00:00Z) agar jendela bisa dipotong tepat di candle.
+const parseT = (s, end) => (s.includes('T') ? Date.parse(s) : Date.parse(s + (end ? 'T23:59:59Z' : 'T00:00:00Z'))) / 1000;
+const fromTs = arg('--from') ? parseT(arg('--from'), false) : 0;
+const toTs = arg('--to') ? parseT(arg('--to'), true) : Infinity;
 
 const HISTORY_BARS = 600; // HARUS sama dengan lib/engine.js
 const WIB_OFFSET = 7 * 3600;

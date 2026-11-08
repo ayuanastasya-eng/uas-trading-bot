@@ -104,6 +104,11 @@ const near = (a, b) => Math.abs(a - b) <= 1e-9 * Math.max(1, Math.abs(a), Math.a
   const snaps = await readLog(store, 'snapshots');
   ok(snaps.length === ticks && snaps.some((s) => s.daily), 'snapshot order book tercatat tiap tick, ada penanda harian');
 
+  // simpan log hasil replay sebagai bahan uji scripts/hitung_ulang.js
+  const logDir = path.join(tmpDir, 'logs');
+  fs.mkdirSync(logDir, { recursive: true });
+  for (const t of ['ticks', 'orders', 'equity', 'errors', 'killswitch', 'snapshots', 'signals']) fs.writeFileSync(path.join(logDir, t + '.json'), JSON.stringify({ rows: await readLog(store, t) }));
+
   // ===== 2. Kill switch =====
   console.log('\n[2] Kill switch');
   {
