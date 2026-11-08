@@ -3,6 +3,9 @@
 Mahasiswa: Ayu Anastasya · NIM 25110200001 · Tugas individu
 Bot trading otomatis long-only yang membaca harga dan order book Indodax sungguhan, lalu mensimulasikan order (dry run). Tidak ada uang sungguhan dan tidak memakai API key.
 
+- Dashboard live: https://uas-trading-bot.vercel.app/api/dashboard
+- Repositori: https://github.com/ayuanastasya-eng/uas-trading-bot
+
 ## 1. Bukti freeze dan jadwal yang sebenarnya
 
 | Hal | Isi |
@@ -66,17 +69,29 @@ Endpoint: `/api/tick` (rahasia), `/api/kill` (rahasia), `/api/status` dan `/api/
 node scripts/hitung_ulang.js --url https://<proyek>.vercel.app --unduh      # simpan log mentah ke logs/
 node scripts/hitung_ulang.js --end <waktu ISO> --gap                        # hasil/metrics.json, bandingkan dengan backtest
 node scripts/buat_dashboard.js --end <waktu ISO> --gap                      # dashboard_offline.html (klik dua kali, tanpa internet)
+node scripts/buat_refleksi.js                                               # REFLEKSI.md dari hasil/metrics.json
+node scripts/finalisasi.js [--paket A|B]                                    # semua langkah di atas + ZIP pengumpulan
 ```
 Semua metrik (return, max drawdown, win rate, profit factor, rata-rata menang dan kalah, cost ratio, benchmark BTC buy and hold, uptime, error, selisih backtest dan forward) dihitung oleh satu modul, `lib/metrics.js`. Modul ini dipakai oleh `hitung_ulang`, dashboard Vercel, dan dashboard offline, jadi angkanya sama. Tidak ada angka yang ditulis tangan.
+Dashboard juga menampilkan panel backtest 3 tahun (return total, CAGR, max drawdown) dari `backtest_summary.json`, dan memuat gap backtest-vs-forward dari `hasil/metrics.json` bila sudah dihitung. Keduanya berkas hasil hitung ulang, bukan angka yang ditulis tangan.
 Definisi uptime mengikuti soal: candle dianggap terproses bila diproses sebelum candle berikutnya ditutup.
 
 ## 9. Catatan perubahan setelah freeze
 | Tanggal | Perubahan | Mengubah aturan? |
 |---|---|---|
-| 8 Nov 2026 | Tambah `lib/metrics.js`, `lib/dashboard_html.js`, `api/dashboard.js`, `scripts/hitung_ulang.js`, `scripts/buat_dashboard.js`, `STRATEGI.md`, `README.md`, `REFLEKSI.md`; `backtest.js` menerima jam di `--from/--to`; `replay_test.js` menyimpan log uji | Tidak |
+| 8 Nov 2026 (`4db74cc`) | Tambah `lib/metrics.js`, `lib/dashboard_html.js`, `api/dashboard.js`, `scripts/hitung_ulang.js`, `scripts/buat_dashboard.js`, `STRATEGI.md`, `README.md`, `REFLEKSI.md`; `backtest.js` menerima jam di `--from/--to`; `replay_test.js` menyimpan log uji | Tidak |
+| 8 Nov 2026 (lanjutan) | Panel backtest 3 tahun + panel operasional di dashboard, `backtest_summary.json`, `scripts/buat_refleksi.js` (refleksi otomatis dari `hasil/metrics.json`), `scripts/finalisasi.js` (satu perintah untuk paket ZIP), `hitung_ulang --gap` menambah statistik trade backtest | Tidak |
 | [ISI bila ada perbaikan bug] | | |
 
-## 10. Keterbatasan yang diketahui
+## 10. Finalisasi paket pengumpulan
+Setelah forward test selesai:
+```
+node scripts/finalisasi.js             # Paket A: --end 2026-11-14T05:00:00Z (14 Nov 12.00 WIB)
+node scripts/finalisasi.js --paket B   # Paket B: --end 2026-11-18T00:11:00Z (10 hari penuh, terlambat)
+```
+Skrip memperbarui data candle, menjalankan backtest 3 tahun, mengunduh log mentah, menghitung metrik + gap, membuat dashboard offline, menyusun `REFLEKSI.md`, lalu membuat `paket_<A|B>_<tanggal>.zip`. Isi dan checklist ada di `PANDUAN_PENGUMPULAN.md` di dalam ZIP. Tidak ada aturan, parameter, atau universe yang diubah.
+
+## 11. Keterbatasan yang diketahui
 - Spread dan slippage backtest adalah asumsi awal, dibandingkan dengan snapshot di refleksi.
 - Fill live terjadi sesudah candle tertutup (menunggu jadwal), sedangkan backtest mengisi di sekitar harga close. Selisihnya dijelaskan di refleksi.
 - Jadwal GitHub Actions bisa terlambat. Waktu tiap panggilan dicatat, dan uptime dihitung dari log itu.

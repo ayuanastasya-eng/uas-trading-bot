@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard Bot Dry Run Indodax</title>
+<style>
+:root{--bg:#f7f7f5;--fg:#1c1c1a;--mut:#6b6b66;--card:#fff;--bd:#e3e3de;--pos:#0a7a43;--neg:#b3261e;--eq:#1a56db;--btc:#c27803;--grid:#ececE7}
+@media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#ececE7;--mut:#9a9a93;--card:#1d1d1b;--bd:#32322f;--pos:#4ade80;--neg:#f87171;--eq:#60a5fa;--btc:#fbbf24;--grid:#2a2a27}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 48px}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:32px 0 10px}
+.muted{color:var(--mut);font-size:13px}code{font-size:12px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}.k{font-size:12px;color:var(--mut)}.v{font-size:20px;font-weight:600;margin-top:2px}.s{font-size:12px;color:var(--mut);margin-top:2px}
+.pos{color:var(--pos)}.neg{color:var(--neg)}svg{width:100%;height:auto;background:var(--card);border:1px solid var(--bd);border-radius:10px}
+.eq{stroke:var(--eq);stroke-width:2}.btc{stroke:var(--btc);stroke-width:1.5;stroke-dasharray:5 4}.grid{stroke:var(--grid)}.base{stroke:var(--mut);stroke-dasharray:2 3;stroke-width:1}.ax{fill:var(--mut);font-size:11px}
+.leg{font-size:13px;margin:6px 0}.leg i{display:inline-block;width:18px;height:0;border-top:3px solid;vertical-align:middle;margin:0 6px 0 12px}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--bd);border-radius:10px}table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:7px 10px;border-bottom:1px solid var(--bd);text-align:left;white-space:nowrap}th{color:var(--mut);font-weight:500}.r{text-align:right}tr:last-child td{border-bottom:0}
+</style></head><body><main>
+<h1>Dashboard Bot Dry Run Indodax</h1>
+<div class="muted">Periode 2026-11-08 07:11 WIB sampai 2026-11-08 13:00 WIB (0,2 hari) · 6 tick · 0 order simulasi · sumber: berkas log di logs/ (diunduh dari /api/logs) · dibuat 2026-11-08 14:40 WIB · hash config <code>9ad12e017cc7d1ab</code> signals <code>1b9ee27fa63403f3</code></div>
+
+<h2>Ringkasan</h2>
+<div class="cards">
+<div class="card"><div class="k">Return</div><div class="v"><span class="">0%</span></div><div class="s">Rp100.000.000 menjadi Rp100.000.000</div></div>
+<div class="card"><div class="k">Max drawdown</div><div class="v">0%</div></div>
+<div class="card"><div class="k">Benchmark BTC buy &amp; hold</div><div class="v">-0,69%</div><div class="s">bot unggul 0,69 poin</div></div>
+<div class="card"><div class="k">Trade tertutup</div><div class="v">0</div><div class="s">0 order beli · 0 posisi terbuka</div></div>
+<div class="card"><div class="k">Win rate</div><div class="v">-</div></div>
+<div class="card"><div class="k">Profit factor</div><div class="v">-</div></div>
+<div class="card"><div class="k">Rata-rata menang / kalah</div><div class="v">- / -</div></div>
+<div class="card"><div class="k">Cost ratio</div><div class="v">-</div><div class="s">laba kotor &lt;= 0 (atau belum ada trade tertutup), rasio tidak bermakna</div></div>
+<div class="card"><div class="k">Uptime</div><div class="v">100%</div><div class="s">5 tepat waktu, 0 terlambat, 0 terlewat dari 5 candle</div></div>
+<div class="card"><div class="k">Error</div><div class="v">0</div><div class="s">API error: 0</div></div>
+</div>
+
+<h2>Panel operasional</h2>
+<div class="cards">
+<div class="card"><div class="k">Tick sukses</div><div class="v">6 jam</div><div class="s">dari 7 jam pada periode</div></div>
+<div class="card"><div class="k">Candle tepat waktu</div><div class="v">5 / 5</div><div class="s">0 terlambat · 0 terlewat</div></div>
+<div class="card"><div class="k">Error API</div><div class="v">0</div><div class="s">total error 0</div></div>
+<div class="card"><div class="k">Kill switch</div><div class="v">0</div><div class="s">pemakaian tercatat di log</div></div>
+<div class="card"><div class="k">Order simulasi</div><div class="v">0</div><div class="s">0 beli · 0 trade tertutup</div></div>
+</div>
+
+<h2>Kurva equity</h2>
+<svg viewBox="0 0 900 300" role="img" aria-label="Kurva equity bot dibanding BTC buy and hold"><line class="grid" x1="64" x2="884" y1="272.0" y2="272.0"/><text class="ax" x="58" y="276.0" text-anchor="end">99.18 jt</text><line class="grid" x1="64" x2="884" y1="207.5" y2="207.5"/><text class="ax" x="58" y="211.5" text-anchor="end">99.40 jt</text><line class="grid" x1="64" x2="884" y1="143.0" y2="143.0"/><text class="ax" x="58" y="147.0" text-anchor="end">99.63 jt</text><line class="grid" x1="64" x2="884" y1="78.5" y2="78.5"/><text class="ax" x="58" y="82.5" text-anchor="end">99.85 jt</text><line class="grid" x1="64" x2="884" y1="14.0" y2="14.0"/><text class="ax" x="58" y="18.0" text-anchor="end">100.07 jt</text>
+  <line class="base" x1="64" x2="884" y1="35.5" y2="35.5"/>
+  <polyline class="btc" fill="none" points="64.0,214.2 189.9,220.1 344.2,214.4 600.4,214.4 746.3,250.5 884.0,235.1"/><polyline class="eq" fill="none" points="64.0,35.5 64.0,35.5 189.9,35.5 344.2,35.5 600.4,35.5 746.3,35.5 884.0,35.5"/></svg>
+<div class="leg"><i style="border-color:var(--eq)"></i>Equity bot (posisi dinilai di best bid)<i style="border-color:var(--btc);border-top-style:dashed"></i>BTC buy &amp; hold (setelah fee)</div>
+
+<h2>Backtest 3 tahun (data asli Indodax)</h2>
+  <div class="cards">
+  <div class="card"><div class="k">Periode</div><div class="v">2023-10-01 sampai 2026-11-08</div></div>
+  <div class="card"><div class="k">Return total</div><div class="v">26,43%</div></div>
+  <div class="card"><div class="k">CAGR</div><div class="v">7,85%</div></div>
+  <div class="card"><div class="k">Max drawdown</div><div class="v">22,5%</div></div>
+  <div class="card"><div class="k">Trade tertutup</div><div class="v">282</div><div class="s">win rate 32,6% · profit factor 1,14</div></div>
+  </div>
+
+<h2>Biaya transaksi</h2>
+<div class="cards"><div class="card"><div class="k">Fee</div><div class="v">Rp0</div></div><div class="card"><div class="k">Spread</div><div class="v">Rp0</div></div><div class="card"><div class="k">Slippage vs sinyal</div><div class="v">Rp0</div><div class="s">bertanda, negatif = lebih baik dari sinyal</div></div><div class="card"><div class="k">Total biaya</div><div class="v">Rp0</div></div></div>
+
+<h2>Backtest vs forward test (jendela candle sama)</h2>
+  <p class="muted">Angka gap dihitung ulang pada 2026-11-08 14:39 WIB untuk batas data 2026-11-08 13:00 WIB.</p>
+  <div class="cards"><div class="card"><div class="k">Return forward</div><div class="v">0%</div></div><div class="card"><div class="k">Return backtest</div><div class="v">0%</div></div><div class="card"><div class="k">Selisih</div><div class="v">0 poin</div><div class="s">forward dikurangi backtest</div></div><div class="card"><div class="k">Order cocok</div><div class="v">0 dari 0 (forward) / 0 (backtest)</div></div><div class="card"><div class="k">Selisih fill rata-rata</div><div class="v">-</div><div class="s">positif = fill live lebih buruk</div></div></div>
+  
+
+<h2>Spread dari snapshot order book</h2>
+<p class="muted">Median semua pair 0,0404% dibanding asumsi backtest 0,3% (slippage 0,05%).</p>
+<div class="tw"><table><thead><tr><th>Pair</th><th class="r">Snapshot</th><th class="r">Median</th><th class="r">P90</th></tr></thead><tbody><tr><td>BTCIDR</td><td class="r">6</td><td class="r">0,0003%</td><td class="r">0,1067%</td></tr><tr><td>ETHIDR</td><td class="r">6</td><td class="r">0,0706%</td><td class="r">0,1413%</td></tr><tr><td>XRPIDR</td><td class="r">6</td><td class="r">0,0381%</td><td class="r">0,1288%</td></tr><tr><td>SOLIDR</td><td class="r">6</td><td class="r">0,0404%</td><td class="r">0,0761%</td></tr><tr><td>DOGEIDR</td><td class="r">6</td><td class="r">0,1551%</td><td class="r">0,2332%</td></tr></tbody></table></div>
+
+<h2>Order simulasi (100 terbaru)</h2>
+<div class="tw"><table><thead><tr><th>Waktu</th><th>Pair</th><th>Sisi</th><th class="r">Fill</th><th class="r">Bid / Ask</th><th class="r">Beda vs sinyal</th><th class="r">Fee</th><th class="r">PnL</th><th>Alasan</th></tr></thead><tbody><tr><td colspan="9" class="muted">Belum ada order.</td></tr></tbody></table></div>
+
+<h2>Error dan penolakan</h2>
+<p class="muted">Per tipe: tidak ada. Kill switch aktif tercatat 0 kali.</p>
+
+
+<p class="muted" style="margin-top:32px">Semua angka dihitung ulang dari log mentah oleh <code>lib/metrics.js</code> (dipakai juga oleh <code>scripts/hitung_ulang.js</code>). Tidak ada angka yang ditulis tangan.</p>
+</main></body></html>

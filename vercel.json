@@ -2,7 +2,7 @@
   "functions": {
     "api/*.js": {
       "maxDuration": 30,
-      "includeFiles": "{config.json,signals.js}"
+      "includeFiles": "{config.json,signals.js,backtest_summary.json,hasil/metrics.json}"
     }
   }
 }

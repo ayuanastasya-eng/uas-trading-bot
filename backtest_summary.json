@@ -1,0 +1,12 @@
+{
+  "periode": "2023-10-01 -> 2026-11-08",
+  "return_total_pct": 26.43,
+  "cagr_pct": 7.85,
+  "max_drawdown_pct": 22.5,
+  "jumlah_trade": 282,
+  "win_rate_pct": 32.6,
+  "profit_factor": 1.14,
+  "avg_win_idr": 2322621,
+  "avg_loss_idr": -985521,
+  "total_fee_idr": 44311258
+}

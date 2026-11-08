@@ -82,9 +82,15 @@ function gap(cfg, L, endTs, finalEq, orders) {
   const liveRet = (finalEq / cfg.risk.initial_capital - 1) * 100;
   return {
     jendela_candle: { dari: iso(cMin), sampai: iso(cMax) },
+    periode_backtest: bs.periode,
     return_forward_pct: r2(liveRet),
     return_backtest_pct: bs.return_total_pct,
     selisih_pct_poin: r2(liveRet - bs.return_total_pct),
+    trade_forward: orders.filter((o) => o.side === 'SELL').length,
+    trade_backtest: bs.jumlah_trade,
+    win_rate_backtest_pct: bs.win_rate_pct,
+    profit_factor_backtest: bs.profit_factor,
+    max_drawdown_backtest_pct: bs.max_drawdown_pct,
     order_forward: live.size,
     order_backtest: bt.size,
     order_cocok: cocok.length,

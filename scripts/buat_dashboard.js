@@ -15,15 +15,20 @@ const load = (t) => { const f = path.join(logsDir, `${t}.json`); return fs.exist
 const L = Object.fromEntries(['ticks', 'orders', 'equity', 'errors', 'killswitch', 'snapshots', 'signals'].map((t) => [t, load(t)]));
 const endTs = arg('--end') ? Date.parse(arg('--end')) / 1000 : undefined;
 const { metrics, series } = computeMetrics(L, cfg, { endTs });
-let gap = null;
+let gap = null, gapInfo = null;
 if (process.argv.includes('--gap')) {
   const f = path.join(arg('--hasil', path.join(root, 'hasil')), 'metrics.json');
-  if (fs.existsSync(f)) gap = JSON.parse(fs.readFileSync(f, 'utf8')).gap_backtest_vs_forward || null;
-  else console.warn('hasil/metrics.json tidak ada; bagian gap dilewati. Jalankan scripts/hitung_ulang.js --gap dulu.');
+  if (fs.existsSync(f)) {
+    const m = JSON.parse(fs.readFileSync(f, 'utf8'));
+    gap = m.gap_backtest_vs_forward || null;
+    gapInfo = { dihitung_pada: m.dihitung_pada, akhir: m.periode && m.periode.akhir };
+  } else console.warn('hasil/metrics.json tidak ada; bagian gap dilewati. Jalankan scripts/hitung_ulang.js --gap dulu.');
 }
+const btFile = path.join(root, 'backtest_summary.json');
+const backtest = fs.existsSync(btFile) ? JSON.parse(fs.readFileSync(btFile, 'utf8')) : null;
 const e = endTs || (L.ticks.length ? L.ticks[L.ticks.length - 1].ts : 0);
 const html = render({
-  metrics, series, gap,
+  metrics, series, gap, gapInfo, backtest,
   orders: L.orders.filter((o) => o.ts <= e), errors: L.errors.filter((x) => x.ts <= e),
   sumber: `berkas log di ${path.relative(root, logsDir) || 'logs'}/ (diunduh dari /api/logs)`,
 });

@@ -5,3 +5,10 @@ node_modules/
 .vercel/
 out/
 out_*/
+paket_*/
+paket_*.zip
+
+# artefak uji lokal
+hasil/REFLEKSI_*
+dryrun*/
+dryrun*.zip
