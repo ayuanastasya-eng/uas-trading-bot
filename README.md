@@ -88,7 +88,7 @@ Setelah forward test selesai:
 node scripts/finalisasi.js             # Paket A: --end 2026-11-14T05:00:00Z (14 Nov 12.00 WIB)
 node scripts/finalisasi.js --paket B   # Paket B: --end 2026-11-18T00:11:00Z (10 hari penuh, terlambat)
 ```
-Skrip memperbarui data candle, menjalankan backtest 3 tahun, mengunduh log mentah, menghitung metrik + gap, membuat dashboard offline, menyusun `REFLEKSI.md`, lalu membuat `paket_<A|B>_<tanggal>.zip`. Isi dan checklist ada di `PANDUAN_PENGUMPULAN.md` di dalam ZIP. Tidak ada aturan, parameter, atau universe yang diubah.
+Skrip memperbarui data candle, menjalankan backtest 3 tahun, mengunduh log mentah, menghitung metrik + gap, membuat dashboard offline, menyusun `REFLEKSI.md`, lalu membuat `paket_<A|B>_<tanggal>.zip`. ZIP memuat kode, log mentah, hasil backtest 3 tahun lengkap (`trades.csv`, `orders.csv`, `equity.csv`, `signals.csv`), hasil backtest jendela yang sama, dashboard offline, dan dokumen. Isi dan checklist ada di `PANDUAN_PENGUMPULAN.md` di dalam ZIP. Tidak ada aturan, parameter, atau universe yang diubah.
 
 ## 11. Keterbatasan yang diketahui
 - Spread dan slippage backtest adalah asumsi awal, dibandingkan dengan snapshot di refleksi.

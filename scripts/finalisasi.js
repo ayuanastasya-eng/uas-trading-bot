@@ -90,7 +90,7 @@ const wib = (iso) => {
   const files = [
     'README.md', 'STRATEGI.md', 'REFLEKSI.md', 'package.json', 'config.json', 'signals.js',
     'backtest.js', 'fetch_history.py', 'universe_select.py', 'universe.csv', 'backtest_summary.json',
-    'dashboard_offline.html', '.env.example', '.gitignore',
+    'dashboard_offline.html', 'vercel.json', '.env.example', '.gitignore',
   ];
   // REFLEKSI_preview/backup dan artefak sementara tidak ikut ke paket final.
   const keep = (src) => !/[\\/](\.env($|\.)|node_modules|\.vercel|out|out_|paket_|REFLEKSI_)/.test(src);
@@ -105,6 +105,10 @@ const wib = (iso) => {
     if (!fs.existsSync(src)) { console.warn(`  lewati berkas yang belum ada: ${f}`); continue; }
     fs.copyFileSync(src, path.join(stageDir, f));
   }
+  // Hasil backtest 3 tahun lengkap (trades/orders/equity/signals), bukan hanya ringkasannya.
+  if (fs.existsSync(path.join(root, 'out'))) {
+    fs.cpSync(path.join(root, 'out'), path.join(stageDir, 'hasil', 'backtest_3tahun'), { recursive: true });
+  }
 
   const guide = `# Panduan Pengumpulan UAS — Paket ${paket}
 
@@ -116,10 +120,11 @@ Berkas ini dibuat otomatis oleh \`scripts/finalisasi.js\`. Tanggal pembuatan: ${
 - Paket: ${paket} — batas data ${END} (${wib(END)})
 
 ## Isi ZIP
-- Kode bot, backtest, dan skrip hitung ulang (\`api/\`, \`lib/\`, \`signals.js\`, \`backtest.js\`, \`scripts/\`, \`test/\`)
+- Kode bot, backtest, dan skrip hitung ulang (\`api/\`, \`lib/\`, \`signals.js\`, \`backtest.js\`, \`scripts/\`, \`test/\`, \`vercel.json\`)
 - \`README.md\` (cara jalan dan deploy), \`STRATEGI.md\` (strategi + perubahan dari UTS), \`REFLEKSI.md\`
 - \`logs/\` — log mentah forward test (tick, order, equity harian, error, kill switch, snapshot order book, sinyal)
 - \`hasil/metrics.json\` + \`hasil/backtest_jendela/\` — hasil hitung ulang dan backtest jendela yang sama
+- \`hasil/backtest_3tahun/\` — hasil backtest 3 tahun lengkap (trades, orders, equity, signals, summary)
 - \`dashboard_offline.html\` — dashboard mandiri, bisa dibuka tanpa internet
 - \`backtest_summary.json\` — ringkasan backtest 3 tahun (return, CAGR, max drawdown)
 - \`data/\` — candle historis yang dipakai backtest
