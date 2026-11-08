@@ -1,4 +1,3 @@
-<img width="1513" height="685" alt="image" src="https://github.com/user-attachments/assets/4ee96631-abe2-466d-9fd9-b23c39deff16" />
 # Bot Dry Run Indodax di Vercel (UAS Algorithmic Trading)
 
 Mahasiswa: Ayu Anastasya · NIM 25110200001 · Tugas individu
@@ -83,6 +82,9 @@ Definisi uptime mengikuti soal: candle dianggap terproses bila diproses sebelum 
 | 8 Nov 2026 (commit `4db74cc`) | Tambah `lib/metrics.js`, `lib/dashboard_html.js`, `api/dashboard.js`, `scripts/hitung_ulang.js`, `scripts/buat_dashboard.js`, `STRATEGI.md`, `README.md`, `REFLEKSI.md`; `backtest.js` menerima jam di `--from/--to`; `replay_test.js` menyimpan log uji | Tidak |
 | 8 Nov 2026 (`3c27252`) | Panel backtest 3 tahun + panel operasional di dashboard, `backtest_summary.json`, `scripts/buat_refleksi.js` (refleksi otomatis dari `hasil/metrics.json`), `scripts/finalisasi.js` (satu perintah untuk paket ZIP), `hitung_ulang --gap` menambah statistik trade backtest; `vercel.json` menyertakan berkas hasil agar dashboard Vercel bisa membacanya | Tidak |
 | 8 Nov 2026 (`a612370`) | ZIP menyertakan hasil backtest 3 tahun lengkap (`hasil/backtest_3tahun/`) dan `vercel.json`; artefak `REFLEKSI_*` tidak ikut ke paket | Tidak |
+| 8 Nov 2026 (`fefb881`) | Refleksi dan panduan menyesuaikan Paket A atau B secara otomatis | Tidak |
+| 8 Nov 2026 (`f1be543`, `7e6b73f`, `8fa3477`, `7ec76bc`, `4cdb099`) | Perubahan teks README saja (hash commit, perintah finalisasi, kerapian) | Tidak |
+| 8 Nov 2026 | `data/*.csv` ditambah candle terbaru; `logs/`, `hasil/`, dan `dashboard_offline.html` ditambahkan sebagai potret awal. Semuanya dibuat ulang di akhir periode | Tidak |
 
 ## 10. Finalisasi paket pengumpulan
 Setelah forward test selesai:
