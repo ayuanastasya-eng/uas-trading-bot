@@ -1,3 +1,4 @@
+<img width="1513" height="685" alt="image" src="https://github.com/user-attachments/assets/4ee96631-abe2-466d-9fd9-b23c39deff16" />
 # Bot Dry Run Indodax di Vercel (UAS Algorithmic Trading)
 
 Mahasiswa: Ayu Anastasya · NIM 25110200001 · Tugas individu
