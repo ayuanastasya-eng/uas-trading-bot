@@ -79,7 +79,7 @@ Definisi uptime mengikuti soal: candle dianggap terproses bila diproses sebelum 
 ## 9. Catatan perubahan setelah freeze
 | Tanggal | Perubahan | Mengubah aturan? |
 |---|---|---|
-| 8 Nov 2026 (`4db74cc`) | Tambah `lib/metrics.js`, `lib/dashboard_html.js`, `api/dashboard.js`, `scripts/hitung_ulang.js`, `scripts/buat_dashboard.js`, `STRATEGI.md`, `README.md`, `REFLEKSI.md`; `backtest.js` menerima jam di `--from/--to`; `replay_test.js` menyimpan log uji | Tidak |
+| 8 Nov 2026 (commit `4db74cc`) | Tambah `lib/metrics.js`, `lib/dashboard_html.js`, `api/dashboard.js`, `scripts/hitung_ulang.js`, `scripts/buat_dashboard.js`, `STRATEGI.md`, `README.md`, `REFLEKSI.md`; `backtest.js` menerima jam di `--from/--to`; `replay_test.js` menyimpan log uji | Tidak |
 | 8 Nov 2026 (`3c27252`) | Panel backtest 3 tahun + panel operasional di dashboard, `backtest_summary.json`, `scripts/buat_refleksi.js` (refleksi otomatis dari `hasil/metrics.json`), `scripts/finalisasi.js` (satu perintah untuk paket ZIP), `hitung_ulang --gap` menambah statistik trade backtest; `vercel.json` menyertakan berkas hasil agar dashboard Vercel bisa membacanya | Tidak |
 | 8 Nov 2026 (`a612370`) | ZIP menyertakan hasil backtest 3 tahun lengkap (`hasil/backtest_3tahun/`) dan `vercel.json`; artefak `REFLEKSI_*` tidak ikut ke paket | Tidak |
 
