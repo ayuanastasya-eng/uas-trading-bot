@@ -1,19 +1,19 @@
 {
-  "dihitung_pada": "2026-11-08T07:43:18.842Z",
+  "dihitung_pada": "2026-11-14T05:21:16.908Z",
   "sumber_berkas": {
     "logs_dir": "logs",
     "config": "config.json"
   },
   "periode": {
     "mulai": "2026-11-08T00:11:42.000Z",
-    "akhir": "2026-11-08T06:00:00.000Z",
-    "hari": 0.24
+    "akhir": "2026-11-14T05:00:00.000Z",
+    "hari": 6.2
   },
   "sumber": {
-    "jumlah_tick": 6,
+    "jumlah_tick": 268,
     "jumlah_order": 0,
-    "jumlah_snapshot": 6,
-    "jumlah_sinyal": 10
+    "jumlah_snapshot": 268,
+    "jumlah_sinyal": 190
   },
   "return_pct": 0,
   "equity_awal": 100000000,
@@ -36,25 +36,25 @@
     "catatan": "laba kotor <= 0 (atau belum ada trade tertutup), rasio tidak bermakna"
   },
   "benchmark_btc_buy_hold": {
-    "return_pct": -0.69,
+    "return_pct": -11.07,
     "ask_awal": 1370006000,
-    "bid_akhir": 1369000000,
+    "bid_akhir": 1226001000,
     "dari": "2026-11-08T00:11:42.000Z",
-    "sampai": "2026-11-08T05:52:48.000Z"
+    "sampai": "2026-11-14T04:55:48.000Z"
   },
-  "selisih_vs_btc_pct_poin": 0.69,
+  "selisih_vs_btc_pct_poin": 11.07,
   "uptime": {
     "definisi": "candle diproses sebelum candle berikutnya ditutup / candle yang sudah jatuh tempo (per pair)",
-    "candle_jatuh_tempo": 5,
-    "tepat_waktu": 5,
+    "candle_jatuh_tempo": 185,
+    "tepat_waktu": 185,
     "terlambat": 0,
     "terlewat": 0,
     "persen": 100,
     "info_tick": {
-      "jam_dengan_tick_sukses": 6,
-      "total_jam": 7,
-      "median_detik_setelah_jam": 1935,
-      "maks_detik_setelah_jam": 3330
+      "jam_dengan_tick_sukses": 148,
+      "total_jam": 150,
+      "median_detik_setelah_jam": 2227,
+      "maks_detik_setelah_jam": 3591
     }
   },
   "error": {
@@ -66,32 +66,32 @@
   "spread_snapshot": {
     "per_pair": {
       "btcidr": {
-        "n": 6,
-        "median_pct": 0.0003,
-        "p90_pct": 0.1067
+        "n": 268,
+        "median_pct": 0.0245,
+        "p90_pct": 0.1272
       },
       "ethidr": {
-        "n": 6,
-        "median_pct": 0.0706,
-        "p90_pct": 0.1413
+        "n": 268,
+        "median_pct": 0.0694,
+        "p90_pct": 0.1466
       },
       "xrpidr": {
-        "n": 6,
-        "median_pct": 0.0381,
-        "p90_pct": 0.1288
+        "n": 268,
+        "median_pct": 0.0677,
+        "p90_pct": 0.1539
       },
       "solidr": {
-        "n": 6,
-        "median_pct": 0.0404,
-        "p90_pct": 0.0761
+        "n": 268,
+        "median_pct": 0.0975,
+        "p90_pct": 0.1653
       },
       "dogeidr": {
-        "n": 6,
-        "median_pct": 0.1551,
-        "p90_pct": 0.2332
+        "n": 268,
+        "median_pct": 0.1582,
+        "p90_pct": 0.2428
       }
     },
-    "median_semua_pair_pct": 0.0404,
+    "median_semua_pair_pct": 0.0694,
     "asumsi_backtest_pct": 0.3,
     "asumsi_slippage_pct": 0.05
   },
@@ -102,9 +102,9 @@
   "gap_backtest_vs_forward": {
     "jendela_candle": {
       "dari": "2026-11-07T20:00:00.000Z",
-      "sampai": "2026-11-08T00:00:00.000Z"
+      "sampai": "2026-11-14T00:00:00.000Z"
     },
-    "periode_backtest": "2026-11-07 -> 2026-11-08",
+    "periode_backtest": "2026-11-07 -> 2026-11-14",
     "return_forward_pct": 0,
     "return_backtest_pct": 0,
     "selisih_pct_poin": 0,
